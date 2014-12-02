@@ -11,6 +11,10 @@
 
 * RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法
 
+###控制反转
+=======
+
+* ViewUtils 控制反转，快速开发，极少代码来findviewbyid、setonclick等等
 
 
 ###图像处理
