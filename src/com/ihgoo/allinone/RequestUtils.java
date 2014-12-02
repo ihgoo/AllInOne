@@ -9,7 +9,7 @@ import com.ihgoo.allinone.http.RequestManager;
 
 /**
  * 
- * 初始化请求、获得一个请求队列、添加一个请求队列等方法
+ * 初始化请求、获得一个请求队列、将请求添加到请求队列中等方法
  * 
  * @author <a href="http://www.xunhou.me" target="_blank">Kelvin</a>
  *
