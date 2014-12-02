@@ -25,7 +25,6 @@ public class RequestManager {
 
 	public static void init(Context context) {
 		mRequestQueue = Volley.newRequestQueue(context);
-
 		int memClass = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
 		// Use 1/8th of the available memory for this memory cache.
 		int cacheSize = 1024 * 1024 * memClass / 8;

@@ -7,7 +7,7 @@ import com.android.volley.toolbox.ImageLoader;
 
 /**
  * 
- * @author kelvin
+ * @author <a href="http://www.xunhou.me" target="_blank">Kelvin</a>
  *
  */
 public class BitmapLruCache extends LruCache<String, Bitmap> implements ImageLoader.ImageCache {
