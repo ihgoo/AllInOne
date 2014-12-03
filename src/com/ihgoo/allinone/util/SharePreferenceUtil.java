@@ -20,23 +20,32 @@ public class SharePreferenceUtil {
 	private static SharedPreferences sp;
 	private final static String SharePreferncesName = "SP_SETTING";
 
-	public static void setValue(Context context, String key, Object value) {
+	/**
+	 * 
+	 * @param context
+	 * @param key
+	 * @param value
+	 * @return 是否保存成功
+	 */
+	public static boolean setValue(Context context, String key, Object value) {
 		if (sp == null) {
 			sp = context.getSharedPreferences(SharePreferncesName, Context.MODE_PRIVATE);
 		}
 		Editor edit = sp.edit();
 		if (value instanceof String) {
-			edit.putString(key, (String) value);
+			return edit.putString(key, (String) value).commit();
 		} else if (value instanceof Boolean) {
-			edit.putBoolean(key, (boolean) value);
+			return edit.putBoolean(key, (boolean) value).commit();
 		} else if (value instanceof Float) {
-			edit.putFloat(key, (float) value);
+			return edit.putFloat(key, (float) value).commit();
 		} else if (value instanceof Integer) {
-			edit.putInt(key, (int) value);
+			return edit.putInt(key, (int) value).commit();
 		} else if (value instanceof Long) {
-			edit.putLong(key, (long) value);
+			return edit.putLong(key, (long) value).commit();
 		} else if (value instanceof Set) {
+			return false;
 		}
+		return false;
 	}
 
 	public static boolean getBoolean(Context context, String key) {
