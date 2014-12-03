@@ -20,24 +20,47 @@ import android.widget.ImageView;
  */
 public class BitmapUtils {
 
+	/**
+	 * Return bitmap through by imagePath.
+	 * 
+	 * @param imagePath
+	 * @param width
+	 * @param height
+	 * @return
+	 */
 	public static Bitmap getBitmap(String imagePath, int width, int height) {
+		if (imagePath == null || "".equals(imagePath)) {
+			return null;
+		}
 		BitmapFactory.Options localOptions = new BitmapFactory.Options();
 		localOptions.inTempStorage = new byte[1024 * 100];
 		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
 		localOptions.inPurgeable = true;
 		localOptions.inInputShareable = true;
-		localOptions.inSampleSize = calculateInSampleSize(localOptions, width, height);
+		localOptions.inSampleSize = calculateInSampleSize(localOptions, width,
+				height);
 		localOptions.inJustDecodeBounds = false;
 		return BitmapFactory.decodeFile(imagePath, localOptions);
 	}
 
-	public static Bitmap getBitmap(Resources res, InputStream is, int width, int height) {
+	/**
+	 * Return bitmap through by resources.
+	 * 
+	 * @param res
+	 * @param is
+	 * @param width
+	 * @param height
+	 * @return
+	 */
+	public static Bitmap getBitmap(Resources res, InputStream is, int width,
+			int height) {
 		BitmapFactory.Options localOptions = new BitmapFactory.Options();
 		localOptions.inTempStorage = new byte[1024 * 100];
 		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
 		localOptions.inPurgeable = true;
 		localOptions.inInputShareable = true;
-		localOptions.inSampleSize = calculateInSampleSize(localOptions, width, height);
+		localOptions.inSampleSize = calculateInSampleSize(localOptions, width,
+				height);
 		localOptions.inJustDecodeBounds = false;
 		return BitmapFactory.decodeStream(is, null, localOptions);
 	}
@@ -58,18 +81,22 @@ public class BitmapUtils {
 	 * 
 	 * @param paramResources
 	 * @param res
-	 * @param x
-	 * @param y
-	 * @return bitmap对象
+	 * @param width
+	 *            长度
+	 * @param height
+	 *            高度
+	 * @return bitmap 对象
 	 */
-	public static Bitmap decodeSampledBitmapFromResource(Resources paramResources, int res, int width, int height) {
+	public static Bitmap decodeSampledBitmapFromResource(
+			Resources paramResources, int res, int width, int height) {
 		InputStream localInputStream = paramResources.openRawResource(res);
 		BitmapFactory.Options localOptions = new BitmapFactory.Options();
 		localOptions.inTempStorage = new byte[1024 * 100];
 		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
 		localOptions.inPurgeable = true;
 		localOptions.inInputShareable = true;
-		localOptions.inSampleSize = calculateInSampleSize(localOptions, width, height);
+		localOptions.inSampleSize = calculateInSampleSize(localOptions, width,
+				height);
 		localOptions.inJustDecodeBounds = false;
 		return BitmapFactory.decodeStream(localInputStream, null, localOptions);
 	}
@@ -84,7 +111,8 @@ public class BitmapUtils {
 	 *            高度
 	 * @return
 	 */
-	public static int calculateInSampleSize(BitmapFactory.Options paramOptions, int width, int height) {
+	public static int calculateInSampleSize(BitmapFactory.Options paramOptions,
+			int width, int height) {
 		int i = paramOptions.outHeight;
 		int j = paramOptions.outWidth;
 		int k = 1;

@@ -61,7 +61,7 @@ public class MiscUtils {
 	}
 
 	/**
-	 * 计算listview的高度,子ListView的每个Item必须是LinearLayout
+	 * 计算listview的高度,但子ListView每个Item必须是LinearLayout
 	 * 
 	 * @param listView
 	 */
@@ -80,7 +80,8 @@ public class MiscUtils {
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
-		params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+		params.height = totalHeight
+				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
 		listView.setLayoutParams(params);
 	}
 
@@ -120,7 +121,8 @@ public class MiscUtils {
 	}
 
 	public static boolean checkNet(Context context) {
-		ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager manager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = manager.getActiveNetworkInfo();
 		if (info != null) {
 			return true;
@@ -130,7 +132,8 @@ public class MiscUtils {
 
 	public static String getAPN(Context context) {
 		String apn = "";
-		ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager manager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = manager.getActiveNetworkInfo();
 
 		if (info != null) {
@@ -194,7 +197,8 @@ public class MiscUtils {
 	}
 
 	public static String getIMEI(Context context) {
-		TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager mTelephonyMgr = (TelephonyManager) context
+				.getSystemService(Context.TELEPHONY_SERVICE);
 		String imei = mTelephonyMgr.getDeviceId();
 		if (TextUtils.isEmpty(imei) || imei.equals("000000000000000")) {
 			imei = "0";
@@ -204,7 +208,8 @@ public class MiscUtils {
 	}
 
 	public static String getIMSI(Context context) {
-		TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager mTelephonyMgr = (TelephonyManager) context
+				.getSystemService(Context.TELEPHONY_SERVICE);
 		String imsi = mTelephonyMgr.getSubscriberId();
 		if (TextUtils.isEmpty(imsi)) {
 			return "0";
@@ -227,7 +232,8 @@ public class MiscUtils {
 
 	public static String getMcnc(Context context) {
 
-		TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager tm = (TelephonyManager) context
+				.getSystemService(Context.TELEPHONY_SERVICE);
 		String mcnc = tm.getNetworkOperator();
 		if (TextUtils.isEmpty(mcnc)) {
 			return "0";
@@ -242,7 +248,8 @@ public class MiscUtils {
 	 * @return
 	 */
 	public static int getPhoneSDK(Context mContext) {
-		TelephonyManager phoneMgr = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager phoneMgr = (TelephonyManager) mContext
+				.getSystemService(Context.TELEPHONY_SERVICE);
 		LogUtils.i("Bild model:" + Build.MODEL);
 		LogUtils.i("Bild model:" + phoneMgr.getLine1Number());
 		LogUtils.i("Bild model:" + Build.VERSION.SDK);
@@ -258,7 +265,9 @@ public class MiscUtils {
 
 	public static Object getMetaData(Context context, String keyName) {
 		try {
-			ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+			ApplicationInfo info = context.getPackageManager()
+					.getApplicationInfo(context.getPackageName(),
+							PackageManager.GET_META_DATA);
 
 			Bundle bundle = info.metaData;
 			Object value = bundle.get(keyName);
@@ -282,6 +291,11 @@ public class MiscUtils {
 		return "";
 	}
 
+	/**
+	 * 返回十进制序列号，用于唯一标识一个磁盘卷
+	 * @param context
+	 * @return
+	 */
 	public static String getSerialNumber(Context context) {
 		String serial = null;
 		try {
@@ -289,7 +303,8 @@ public class MiscUtils {
 			Method get = c.getMethod("get", String.class);
 			serial = (String) get.invoke(c, "ro.serialno");
 			if (serial == null || serial.trim().length() <= 0) {
-				TelephonyManager tManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+				TelephonyManager tManager = (TelephonyManager) context
+						.getSystemService(Context.TELEPHONY_SERVICE);
 				serial = tManager.getDeviceId();
 			}
 			LogUtils.d("Serial:" + serial);
@@ -312,7 +327,8 @@ public class MiscUtils {
 		if (sDcString.equals(android.os.Environment.MEDIA_MOUNTED)) {
 
 			// 取得sdcard文件路径
-			File pathFile = android.os.Environment.getExternalStorageDirectory();
+			File pathFile = android.os.Environment
+					.getExternalStorageDirectory();
 			android.os.StatFs statfs = new android.os.StatFs(pathFile.getPath());
 
 			// 获取SDCard上BLOCK总数
