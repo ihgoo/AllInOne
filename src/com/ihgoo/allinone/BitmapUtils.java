@@ -2,12 +2,13 @@ package com.ihgoo.allinone;
 
 import java.io.InputStream;
 
+import android.R.integer;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.webkit.WebView;
+import android.view.View;
 import android.widget.ImageView;
 
 /**
@@ -19,6 +20,8 @@ import android.widget.ImageView;
  *
  */
 public class BitmapUtils {
+
+	private static final int TEMP_STORAGE_SIZE = 1024 * 100;
 
 	/**
 	 * Return bitmap through by imagePath.
@@ -32,15 +35,14 @@ public class BitmapUtils {
 		if (imagePath == null || "".equals(imagePath)) {
 			return null;
 		}
-		BitmapFactory.Options localOptions = new BitmapFactory.Options();
-		localOptions.inTempStorage = new byte[1024 * 100];
-		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
-		localOptions.inPurgeable = true;
-		localOptions.inInputShareable = true;
-		localOptions.inSampleSize = calculateInSampleSize(localOptions, width,
-				height);
-		localOptions.inJustDecodeBounds = false;
-		return BitmapFactory.decodeFile(imagePath, localOptions);
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inTempStorage = new byte[TEMP_STORAGE_SIZE];
+		options.inPreferredConfig = Bitmap.Config.RGB_565;
+		options.inPurgeable = true;
+		options.inInputShareable = true;
+		options.inSampleSize = calculateInSampleSize(options, width, height);
+		options.inJustDecodeBounds = false;
+		return BitmapFactory.decodeFile(imagePath, options);
 	}
 
 	/**
@@ -50,19 +52,51 @@ public class BitmapUtils {
 	 * @param is
 	 * @param width
 	 * @param height
-	 * @return
+	 * @return bitmap
 	 */
-	public static Bitmap getBitmap(Resources res, InputStream is, int width,
-			int height) {
-		BitmapFactory.Options localOptions = new BitmapFactory.Options();
-		localOptions.inTempStorage = new byte[1024 * 100];
-		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
-		localOptions.inPurgeable = true;
-		localOptions.inInputShareable = true;
-		localOptions.inSampleSize = calculateInSampleSize(localOptions, width,
-				height);
-		localOptions.inJustDecodeBounds = false;
-		return BitmapFactory.decodeStream(is, null, localOptions);
+	public static Bitmap getBitmap(InputStream is, int width, int height) {
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inTempStorage = new byte[TEMP_STORAGE_SIZE];
+		options.inPreferredConfig = Bitmap.Config.RGB_565;
+		options.inPurgeable = true;
+		options.inInputShareable = true;
+		options.inSampleSize = calculateInSampleSize(options, width, height);
+		options.inJustDecodeBounds = false;
+		return BitmapFactory.decodeStream(is, null, options);
+	}
+
+	/**
+	 * 根据View得到自适应的bitmap对象
+	 * 
+	 * @param imagePath
+	 * @param view
+	 * @return bitmap
+	 */
+	public static Bitmap getBitmapByViewSize(String imagePath, View view) {
+		if (imagePath == null || "".equals(imagePath)) {
+			return null;
+		}
+
+		if (view == null) {
+			return null;
+		}
+
+		return getBitmap(imagePath, view.getWidth(), view.getHeight());
+	}
+
+	/**
+	 * 根据View得到自适应的bitmap对象
+	 * 
+	 * @param imagePath
+	 * @param view
+	 * @return bitmap
+	 */
+	public static Bitmap getBitmapByViewSize(InputStream is, View view) {
+		if (view == null) {
+			return null;
+		}
+
+		return getBitmap(is, view.getWidth(), view.getHeight());
 	}
 
 	/**
@@ -91,7 +125,7 @@ public class BitmapUtils {
 			Resources paramResources, int res, int width, int height) {
 		InputStream localInputStream = paramResources.openRawResource(res);
 		BitmapFactory.Options localOptions = new BitmapFactory.Options();
-		localOptions.inTempStorage = new byte[1024 * 100];
+		localOptions.inTempStorage = new byte[TEMP_STORAGE_SIZE];
 		localOptions.inPreferredConfig = Bitmap.Config.RGB_565;
 		localOptions.inPurgeable = true;
 		localOptions.inInputShareable = true;
