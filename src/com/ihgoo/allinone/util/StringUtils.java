@@ -1,6 +1,10 @@
 package com.ihgoo.allinone.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.annotation.SuppressLint;
+import android.text.TextUtils;
 
 public final class StringUtils {
 
@@ -29,7 +33,8 @@ public final class StringUtils {
 			sepSize = sep.length();
 		}
 
-		int bufSize = (arraySize == 0 ? 0 : ((array[0] == null ? 16 : array[0].length()) + sepSize) * arraySize);
+		int bufSize = (arraySize == 0 ? 0 : ((array[0] == null ? 16 : array[0]
+				.length()) + sepSize) * arraySize);
 		StringBuilder buf = new StringBuilder(bufSize);
 
 		for (int i = 0; i < arraySize; i++) {
@@ -58,5 +63,87 @@ public final class StringUtils {
 			buf.append('"');
 		}
 		return buf.toString();
+	}
+
+	/**
+	 * 将长字符从截取剩下的用...代替
+	 * 
+	 * @param input
+	 * @param count
+	 * @return
+	 */
+	public static String cutString(String input, int count) {
+		return cutString(input, count, null);
+	}
+
+	/**
+	 * 将长字符从截取剩下的用more代替,more为空则用省略号代替
+	 * 
+	 * @param input
+	 * @param count
+	 * @param more
+	 * @return
+	 */
+	public static String cutString(String input, int count, String more) {
+		String resultString = "";
+		if (input != null) {
+			if (more == null) {
+				more = "...";
+			}
+			if (input.length() > count) {
+				resultString = input.substring(0, count) + more;
+			} else {
+				resultString = input;
+			}
+		}
+		return resultString;
+	}
+	
+	/**
+	 * 获得指定中文长度对应的字符串长度，用于截取显示文字，一个中文等于两个英文
+	 * 
+	 * @param chineseLengthForDisplay
+	 * @param content
+	 * @return
+	 */
+	public static int chineseWidth2StringLenth(int chineseLengthForDisplay, String string) {
+		int result = 0;
+		int displayWidth = chineseLengthForDisplay * 2;
+		if (string != null) {
+			for (char chr : string.toCharArray()) {
+				// 中文
+				if (chr >= 0x4e00 && chr <= 0x9fbb) {
+					displayWidth -= 2;
+				} else {
+					// 英文
+					displayWidth -= 1;
+				}
+				if (displayWidth <= 0) {
+					break;
+				}
+				result++;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * 将长时间格式字符串转换为字符串,默认为yyyy-MM-dd HH:mm:ss
+	 * 
+	 * @param time
+	 *            long型时间,单位是微秒
+	 * 
+	 * @param dataFormat
+	 *            需要返回的时间格式，例如： yyyy-MM-dd， yyyy-MM-dd HH:mm:ss
+	 * 
+	 * @return dataFormat格式的时间结果字符串
+	 */
+	public static String dateFormat(long milliseconds, String dataFormat) {
+		if (TextUtils.isEmpty(dataFormat)) {
+			dataFormat = "yyyy-MM-dd HH:mm:ss";
+		}
+		Date date = new Date(milliseconds * 1l);
+		SimpleDateFormat formatter = new SimpleDateFormat(dataFormat);
+		return formatter.format(date);
 	}
 }
