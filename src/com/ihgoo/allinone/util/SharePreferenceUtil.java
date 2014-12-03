@@ -43,6 +43,7 @@ public class SharePreferenceUtil {
 		} else if (value instanceof Long) {
 			return edit.putLong(key, (long) value).commit();
 		} else if (value instanceof Set) {
+			new IllegalArgumentException("Value can not be Set object!");
 			return false;
 		}
 		return false;
@@ -62,5 +63,25 @@ public class SharePreferenceUtil {
 		return sp.getString(key, "");
 	}
 	
+	public static Float getFloat(Context context,String key){
+		if (sp == null) {
+			sp = context.getSharedPreferences(SharePreferncesName, Context.MODE_PRIVATE);
+		}
+		return sp.getFloat(key, 0f);
+	}
+	
+	public static int getInt(Context context,String key){
+		if (sp == null) {
+			sp = context.getSharedPreferences(SharePreferncesName, Context.MODE_PRIVATE);
+		}
+		return sp.getInt(key, 0);
+	}
+	
+	public static long getLong(Context context,String key){
+		if (sp == null) {
+			sp = context.getSharedPreferences(SharePreferncesName, Context.MODE_PRIVATE);
+		}
+		return sp.getLong(key, 0);
+	}
 
 }

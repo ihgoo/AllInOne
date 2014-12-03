@@ -212,7 +212,13 @@ public class OtherUtils {
         return size;
     }
 
-    // get the sub string for large string
+    /**
+     * Get the sub string for large string
+     * @param str
+     * @param start
+     * @param end
+     * @return
+     */
     public static String getSubString(final String str, int start, int end) {
         return new String(str.substring(start, end));
     }

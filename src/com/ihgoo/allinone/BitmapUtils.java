@@ -143,7 +143,7 @@ public class BitmapUtils {
 	 *            长度
 	 * @param height
 	 *            高度
-	 * @return
+	 * @return 缩放比率
 	 */
 	public static int calculateInSampleSize(BitmapFactory.Options paramOptions,
 			int width, int height) {
