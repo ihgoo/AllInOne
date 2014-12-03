@@ -1,10 +1,11 @@
-###All In One 
+##All In One 
 --------------
 * aio(all in one简称) 包含 ioc 框架 、以及一些常用的工具类
 ---------------
 简介
 =======
 
+###几个简单utils类
 * ViewUtils 控制反转,也就是ioc框架，用反射注解方便的 替代findviewbyid，setContentView等常用方法，有效减少代码量。
 
 * BitmapUtils 对图片缩放进行了处理，加载本地图片不会OOM异常了
@@ -21,7 +22,10 @@
 =======
 
 * GuideImage 在activity表面添加了一层图层，作为引导图层用，可添加透明图层
-
+* BitmapUtils 对Bitmap二次处理，避免OOM异常出现
+	* getBitmap(String imagePath, int width, int height) 
+	* getBitmap(Resources res, InputStream is, int width,int height)等方法
+	* getBitmapByViewSize 根据View大小获取自适应的bitmap对象
 
 ###网络请求
 =======
@@ -29,6 +33,8 @@
 * RequestManager 内含初始化Volley方法以及获取请求队列实例
 
 * GsonRequest 请求网络成功后，会解析json，用gson反射方法赋值到bean对象中
+
+* RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法
 
 
 ###其他工具
