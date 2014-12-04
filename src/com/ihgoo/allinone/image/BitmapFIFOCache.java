@@ -14,8 +14,6 @@ import android.graphics.Bitmap.Config;
  */
 public class BitmapFIFOCache {
 
-
-	
 	private Queue<String> mCacheQueue;
 	private HashMap<String, Ref> mCache;
 

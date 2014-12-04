@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.logging.Logger;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,7 +17,7 @@ import android.os.HandlerThread;
 
 import com.ihgoo.allinone.util.BitmapTool;
 import com.ihgoo.allinone.util.LogUtils;
-import com.ihgoo.allinone.utils.MiscUtils;
+import com.ihgoo.allinone.util.OtherUtils;
 
 
 public class ImageSDCacher {
@@ -134,7 +133,7 @@ public class ImageSDCacher {
 			return false;
 		}
 
-		if (FREE_SD_SPACE_NEEDED_TO_CACHE > MiscUtils.freeSpaceOnSd()) {
+		if (FREE_SD_SPACE_NEEDED_TO_CACHE > OtherUtils.freeSpaceOnSd()) {
 			LogUtils.w( "Low free space onsd, do not cache");
 			
 			return false;
@@ -374,7 +373,7 @@ public class ImageSDCacher {
 			}
 		}
 		if (dirSize > MAX_CACHE_SIZE_NEEDED * 1024 * 1024
-				|| FREE_SD_SPACE_NEEDED_TO_CACHE > MiscUtils.freeSpaceOnSd()) {
+				|| FREE_SD_SPACE_NEEDED_TO_CACHE > OtherUtils.freeSpaceOnSd()) {
 			int removeFactor = (int) ((0.4 * files.length) + 1);
 
 			Arrays.sort(files, new FileLastModifSort());
