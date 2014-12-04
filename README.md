@@ -25,6 +25,10 @@
 	* getBitmap(String imagePath, int width, int height) 
 	* getBitmap(Resources res, InputStream is, int width,int height)等方法
 	* getBitmapByViewSize 根据View大小获取自适应的bitmap对象
+	
+* bitmap缓存
+	* FifoCache
+	* LruCache
 
 ###网络请求
 =======
