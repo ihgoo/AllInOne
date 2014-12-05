@@ -454,13 +454,9 @@ public class BitmapUtils {
 	 * @return 图片处理后的名字
 	 */
 	public static String renameUploadFile(String fileName) {
-
 		String result = "yepcolor";
-
 		if (fileName != null && !fileName.equals("")) {
-
 			result = fileName.hashCode() + "";// 获得文件名称的hashcode值
-
 		}
 		return result;
 		// 只允许字母和数字
@@ -471,7 +467,6 @@ public class BitmapUtils {
 		// Pattern p = Pattern.compile(regEx);
 		// Matcher m = p.matcher(fileName);
 		// result = m.replaceAll("").trim();
-
 	}
 
 	/**

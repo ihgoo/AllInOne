@@ -35,13 +35,13 @@ public class SharePreferenceUtil {
 		if (value instanceof String) {
 			return edit.putString(key, (String) value).commit();
 		} else if (value instanceof Boolean) {
-			return edit.putBoolean(key, (boolean) value).commit();
+			return edit.putBoolean(key, (Boolean) value).commit();
 		} else if (value instanceof Float) {
-			return edit.putFloat(key, (float) value).commit();
+			return edit.putFloat(key, (Float) value).commit();
 		} else if (value instanceof Integer) {
-			return edit.putInt(key, (int) value).commit();
+			return edit.putInt(key, (Integer) value).commit();
 		} else if (value instanceof Long) {
-			return edit.putLong(key, (long) value).commit();
+			return edit.putLong(key, (Long) value).commit();
 		} else if (value instanceof Set) {
 			new IllegalArgumentException("Value can not be Set object!");
 			return false;
