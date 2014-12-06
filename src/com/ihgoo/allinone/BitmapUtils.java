@@ -455,7 +455,7 @@ public class BitmapUtils {
 	 */
 	public static String renameUploadFile(String fileName) {
 		String result = "yepcolor";
-		if (fileName != null && !fileName.equals("")) {
+		if (fileName != null && !"".equals(fileName)) {
 			result = fileName.hashCode() + "";// 获得文件名称的hashcode值
 		}
 		return result;

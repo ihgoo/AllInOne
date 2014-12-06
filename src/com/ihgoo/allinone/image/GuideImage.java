@@ -1,5 +1,7 @@
 package com.ihgoo.allinone.image;
 
+import java.util.logging.Logger;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
@@ -32,7 +34,7 @@ public class GuideImage {
 	}
 
 	private static class GuidImageHolder {
-		public static GuideImage INSTANCE = new GuideImage();
+		public static final GuideImage INSTANCE = new GuideImage();
 	}
 
 	private OnGuidImageClickListener mOnClickListener;

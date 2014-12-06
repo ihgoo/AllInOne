@@ -5,17 +5,17 @@ import android.util.Log;
 
 public class LogUtils {
 
-    public static String customTagPrefix = "";
+    private static String customTagPrefix = "";
 
     private LogUtils() {
     }
 
-    public static boolean allowD = true;
-    public static boolean allowE = true;
-    public static boolean allowI = true;
-    public static boolean allowV = true;
-    public static boolean allowW = true;
-    public static boolean allowWtf = true;
+    private static boolean allowD = true;
+    private static boolean allowE = true;
+    private static boolean allowI = true;
+    private static boolean allowV = true;
+    private static boolean allowW = true;
+    private static boolean allowWtf = true;
 
     private static String generateTag(StackTraceElement caller) {
         String tag = "%s.%s(L:%d)";
@@ -24,6 +24,10 @@ public class LogUtils {
         tag = String.format(tag, callerClazzName, caller.getMethodName(), caller.getLineNumber());
         tag = TextUtils.isEmpty(customTagPrefix) ? tag : customTagPrefix + ":" + tag;
         return tag;
+    }
+    
+    public static void setTagPrefix(String tag){
+    		customTagPrefix = tag;
     }
 
     public static CustomLogger customLogger;
