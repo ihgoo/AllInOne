@@ -3,11 +3,6 @@ package com.ihgoo.allinone.view;
 import android.content.Context;
 import android.view.animation.AnimationUtils;
 
-/**
- * Author: wyouflf
- * Date: 13-11-9
- * Time: 下午3:12
- */
 public class ResLoader {
 
     public static Object loadRes(ResType type, Context context, int id) {

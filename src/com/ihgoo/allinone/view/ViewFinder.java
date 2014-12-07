@@ -7,11 +7,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.view.View;
 
-/**
- * Author: wyouflf
- * Date: 13-9-9
- * Time: 下午12:29
- */
 public class ViewFinder {
 
     private View view;

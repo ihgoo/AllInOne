@@ -1,10 +1,5 @@
 package com.ihgoo.allinone.view;
 
-/**
- * Author: wyouflf
- * Date: 13-12-5
- * Time: 下午11:25
- */
 public class ViewInjectInfo {
     public Object value;
     public int parentId;
