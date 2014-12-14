@@ -1,7 +1,5 @@
 package com.ihgoo.allinone.image;
 
-import java.util.logging.Logger;
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;

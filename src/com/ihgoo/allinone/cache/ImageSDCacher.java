@@ -227,7 +227,6 @@ public class ImageSDCacher {
 
 			input.close();
 		} catch (IOException e) {
-			// TODO: handle exception
 		}
 
 	}

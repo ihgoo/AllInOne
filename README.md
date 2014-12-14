@@ -1,16 +1,16 @@
 ##All In One 
 --------------
-* aio(all in one简称) 包含 ioc 框架 、以及一些常用的工具类
+* AIO(all in one简称) 包含 ioc 框架 、以及一些常用的工具类
 ---------------
 
 简介
 =======
-###几个简单utils类
+###几个简单util类
 * ViewUtils 控制反转,也就是ioc框架，用反射注解方便的 替代findviewbyid，setContentView等常用方法，有效减少代码量。
 
 * BitmapUtils 对图片缩放进行了处理，加载本地图片不会OOM异常了
 
-* RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法
+* RequestUtils 初始化网络请求、获得一个请求队列、添加一个请求队列等方法
 
 ###控制反转
 =======
@@ -26,7 +26,7 @@
 	* getBitmap(Resources res, InputStream is, int width,int height)等方法
 	* getBitmapByViewSize 根据View大小获取自适应的bitmap对象
 	
-* bitmap缓存
+* Bitmap缓存
 	* FifoCache
 	* LruCache
 
@@ -39,11 +39,21 @@
 * RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法
 
 
-###其他工具
+###其他工具类
 =======
 * LogUtils 自定义log日志，省略key
 
 * ScreenUtil 和屏幕大小有关工具类
+
+* Base64、Md5
+
+* BitmapTool 关于图片的工具类
+
+* EncryptUtils 加密工具类 des加密
+
+* LogUtils 省略了传入tag的log
+
+* StringUtils 对字符串处理的工具类
 
 * SharePreferenceUtil 对SharePreference封装简单get&put方法
 
