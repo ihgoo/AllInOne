@@ -38,7 +38,7 @@ public class BitmapUtils {
 	 * @param imagePath
 	 * @param width
 	 * @param height
-	 * @return
+	 * @return bitmap
 	 */
 	public static Bitmap getBitmap(String imagePath, int width, int height) {
 		if (imagePath == null || "".equals(imagePath)) {
