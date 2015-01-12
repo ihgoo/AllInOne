@@ -131,7 +131,7 @@ public final class StringUtils {
 	 * 将长时间格式字符串转换为字符串,默认为yyyy-MM-dd HH:mm:ss
 	 * 
 	 * @param time
-	 *            long型时间,单位是微秒
+	 *            long型时间,支持毫秒和秒
 	 * 
 	 * @param dataFormat
 	 *            需要返回的时间格式，例如： yyyy-MM-dd， yyyy-MM-dd HH:mm:ss
@@ -139,10 +139,11 @@ public final class StringUtils {
 	 * @return dataFormat格式的时间结果字符串
 	 */
 	public static String dateFormat(long milliseconds, String dataFormat) {
+		long tempTimestamp = milliseconds > 9999999999L ? milliseconds : milliseconds *1000;
 		if (TextUtils.isEmpty(dataFormat)) {
 			dataFormat = "yyyy-MM-dd HH:mm:ss";
 		}
-		Date date = new Date(milliseconds * 1l);
+		Date date = new Date(tempTimestamp * 1l);
 		SimpleDateFormat formatter = new SimpleDateFormat(dataFormat);
 		return formatter.format(date);
 	}
