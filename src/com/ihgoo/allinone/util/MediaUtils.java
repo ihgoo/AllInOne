@@ -5,6 +5,7 @@ import java.io.File;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -13,6 +14,12 @@ import android.provider.MediaStore;
 
 public class MediaUtils {
 
+	/**
+	 * 向多媒体数据库手动添加(Android4.4中拒绝发送Intent.ACTION_MEDIA_MOUNTED扫描SD卡的广播)
+	 * 
+	 * @param mContext
+	 * @param filePath
+	 */
 	public static void insertMediaFile(final Context mContext, String filePath) {
 		if (filePath == null) {
 			return;
@@ -56,18 +63,62 @@ public class MediaUtils {
 						if (values.size() > 0) {
 							cr.update(uri, values, null, null);
 						}
+						
 					}
 				});
 	}
 
-	public static void updateGallery(Context context, String filename)// filename是我们的文件全名，包括后缀
-	{
+	/**
+	 * 手动单独扫描相册文件
+	 * 
+	 * @param context
+	 *            上下文
+	 * @param filename
+	 *            文件完整路径
+	 */
+	public static void updateGallery(final Context context, String filename) {
 		MediaScannerConnection.scanFile(context, new String[] { filename },
 				null, new MediaScannerConnection.OnScanCompletedListener() {
 					public void onScanCompleted(String path, Uri uri) {
+						context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
 						LogUtils.i("Scanned " + path + ":");
 						LogUtils.i("-> uri=" + uri);
 					}
 				});
 	}
+	
+	
+	public static void fileScan(final Context context, String file){  
+        Uri data = Uri.parse("file://"+file);  
+        LogUtils.i("file:"+file);  
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, data));  
+    }  
+      
+    public static void folderScan(final Context context, String path){  
+        File file = new File(path);  
+          
+        if(file.isDirectory()){  
+            File[] array = file.listFiles();  
+              
+            for(int i=0;i<array.length;i++){  
+                File f = array[i];  
+                  
+                if(f.isFile()){//FILE TYPE  
+                    String name = f.getName();  
+                      
+                    if(name.contains(".jpg")){  
+                        fileScan(context,f.getAbsolutePath());  
+                    }  
+                }  
+                else {//FOLDER TYPE  
+                    folderScan(context,f.getAbsolutePath());  
+                }  
+            }  
+        }  
+    }  
+	
+	
+	
+	
+	
 }
