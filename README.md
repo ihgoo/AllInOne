@@ -1,6 +1,6 @@
 ##All In One 
 --------------
-* AIO(all in one简称) 包含 ioc 框架 、以及一些常用的工具类
+* AIO(all in one简称) 包含 ioc 框架 、以及一些常用的工具类 *
 ---------------
 
 简介
@@ -57,7 +57,7 @@ DB
 
 其他工具类
 -------
-* LogUtils 自定义log日志，省略key
+* LogUtils 自定义log日志，省略参数key，可定位到哪个类第几行
 
 * ScreenUtil 和屏幕大小有关工具类
 
