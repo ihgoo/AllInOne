@@ -12,12 +12,13 @@
 
 * RequestUtils 初始化网络请求、获得一个请求队列、添加一个请求队列等方法
 
-###控制反转
+
+控制反转
 =======
 * ViewUtils 控制反转，快速开发，极少代码来findviewbyid、setonclick等等
 
 
-###图像处理
+图像处理
 =======
 * GuideImage 在activity表面添加了一层图层，作为引导图层用，可添加透明图层
 
@@ -30,7 +31,8 @@
 	* FifoCache
 	* LruCache
 
-###网络请求
+
+网络请求
 =======
 * RequestManager 内含初始化Volley方法以及获取请求队列实例
 
@@ -38,13 +40,13 @@
 
 * RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法
 
-###缓存
+
+缓存
 =======
 * ACache 可以缓存网络请求数据，比如oschina的android客户端可以缓存http请求的新闻内容，缓存时间假设为1个小时，超时后自动失效，让客户端重新请求新的数据，减少客户端流量，同时减少服务器并发量。
 
 
-
-####DB
+DB
 =======
 - 推荐使用GreenDao，优点：
     - 使用java工程生成JavaObject，熟练后非常方便
@@ -52,8 +54,8 @@
     - 内存消耗最少，性能最佳
 - 使用教程 参考个人博客 [`GreenDao学习`](http://xunhou.me/greendao/)
     
-    
-###其他工具类
+
+其他工具类
 =======
 * LogUtils 自定义log日志，省略key
 
@@ -74,6 +76,7 @@
 * Aipay 加密拼接字符串类
 	* AipayKeys 这里保存了所能用到的常量，如 合作身份者id、收款支付宝账号、私钥等等
 	* AipayOrder 订单类，这里有 getNewOrderInfo 方法获取拼接的订单详情、以及加密后的订单详情等
+
 
 License
 =======
