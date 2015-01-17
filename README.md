@@ -73,9 +73,7 @@ DB
 
 * SharePreferenceUtil 对SharePreference封装简单get&put方法
 
-* Aipay 加密拼接字符串类
-	* AipayKeys 这里保存了所能用到的常量，如 合作身份者id、收款支付宝账号、私钥等等
-	* AipayOrder 订单类，这里有 getNewOrderInfo 方法获取拼接的订单详情、以及加密后的订单详情等
+* PhoneUtils 获取手机信息的工具类，诸如获取手机型号获取手机sd卡大小等
 
 
 License
