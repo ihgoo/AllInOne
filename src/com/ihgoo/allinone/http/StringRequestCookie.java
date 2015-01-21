@@ -3,12 +3,12 @@ package com.ihgoo.allinone.http;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.StringRequest;
+import com.ihgoo.allinone.volley.AuthFailureError;
+import com.ihgoo.allinone.volley.NetworkResponse;
+import com.ihgoo.allinone.volley.Response;
+import com.ihgoo.allinone.volley.Response.ErrorListener;
+import com.ihgoo.allinone.volley.Response.Listener;
+import com.ihgoo.allinone.volley.toolbox.StringRequest;
 
 public class StringRequestCookie extends StringRequest {
 

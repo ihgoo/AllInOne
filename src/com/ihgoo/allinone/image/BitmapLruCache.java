@@ -1,9 +1,10 @@
 package com.ihgoo.allinone.image;
 
+import com.ihgoo.allinone.volley.toolbox.ImageLoader;
+
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
-import com.android.volley.toolbox.ImageLoader;
 
 /**
  * 

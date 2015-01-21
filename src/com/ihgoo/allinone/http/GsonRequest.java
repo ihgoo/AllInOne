@@ -3,16 +3,16 @@ package com.ihgoo.allinone.http;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.ihgoo.allinone.volley.AuthFailureError;
+import com.ihgoo.allinone.volley.NetworkResponse;
+import com.ihgoo.allinone.volley.ParseError;
+import com.ihgoo.allinone.volley.Request;
+import com.ihgoo.allinone.volley.Response;
+import com.ihgoo.allinone.volley.Response.ErrorListener;
+import com.ihgoo.allinone.volley.Response.Listener;
+import com.ihgoo.allinone.volley.toolbox.HttpHeaderParser;
 
 /**
  * Volley adapter for JSON requests with POST method that will be parsed into

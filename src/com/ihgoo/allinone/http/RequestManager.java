@@ -3,11 +3,11 @@ package com.ihgoo.allinone.http;
 import android.app.ActivityManager;
 import android.content.Context;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.Volley;
 import com.ihgoo.allinone.image.BitmapLruCache;
+import com.ihgoo.allinone.volley.Request;
+import com.ihgoo.allinone.volley.RequestQueue;
+import com.ihgoo.allinone.volley.toolbox.ImageLoader;
+import com.ihgoo.allinone.volley.toolbox.Volley;
 
 /**
  * Init Volley method and provide instance of requestqueue...
