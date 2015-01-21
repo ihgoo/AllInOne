@@ -34,7 +34,6 @@ import java.util.Map;
 import android.os.SystemClock;
 
 import com.ihgoo.allinone.volley.Cache;
-import com.ihgoo.allinone.volley.Cache.Entry;
 import com.ihgoo.allinone.volley.VolleyLog;
 
 /**

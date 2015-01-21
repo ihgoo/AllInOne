@@ -1,5 +1,3 @@
-package com.ihgoo.allinone.volley.toolbox;
-
 /*
  * Copyright (C) 2011 The Android Open Source Project
  *
@@ -15,6 +13,9 @@ package com.ihgoo.allinone.volley.toolbox;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package com.ihgoo.allinone.volley.toolbox;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -23,7 +24,6 @@ import java.util.concurrent.TimeoutException;
 import com.ihgoo.allinone.volley.Request;
 import com.ihgoo.allinone.volley.Response;
 import com.ihgoo.allinone.volley.VolleyError;
-
 
 /**
  * A Future that represents a Volley request.
@@ -57,8 +57,6 @@ public class RequestFuture<T> implements Future<T>, Response.Listener<T>,
     private boolean mResultReceived = false;
     private T mResult;
     private VolleyError mException;
-    
-    
 
     public static <E> RequestFuture<E> newFuture() {
         return new RequestFuture<E>();

@@ -20,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 
 import com.ihgoo.allinone.volley.NetworkResponse;
 import com.ihgoo.allinone.volley.Request;
+import com.ihgoo.allinone.volley.Request.Method;
 import com.ihgoo.allinone.volley.Response;
 import com.ihgoo.allinone.volley.Response.ErrorListener;
 import com.ihgoo.allinone.volley.Response.Listener;

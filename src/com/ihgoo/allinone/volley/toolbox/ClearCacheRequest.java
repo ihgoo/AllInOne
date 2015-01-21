@@ -22,8 +22,6 @@ import android.os.Looper;
 import com.ihgoo.allinone.volley.Cache;
 import com.ihgoo.allinone.volley.NetworkResponse;
 import com.ihgoo.allinone.volley.Request;
-import com.ihgoo.allinone.volley.Request.Method;
-import com.ihgoo.allinone.volley.Request.Priority;
 import com.ihgoo.allinone.volley.Response;
 
 /**

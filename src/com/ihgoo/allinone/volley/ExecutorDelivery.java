@@ -16,9 +16,9 @@
 
 package com.ihgoo.allinone.volley;
 
-import android.os.Handler;
-
 import java.util.concurrent.Executor;
+
+import android.os.Handler;
 
 /**
  * Delivers responses and errors.
