@@ -44,8 +44,4 @@ public class RequestUtils {
 		RequestManager.cancelAll(null);
 	}
 
-	public static ImageLoader getImageLoader() {
-		return RequestManager.getImageLoader();
-	}
-
 }
