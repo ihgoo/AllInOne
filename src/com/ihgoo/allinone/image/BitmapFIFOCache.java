@@ -7,13 +7,12 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 
 /**
- * 先进先出bitmap缓存
+ * 先进先出 置换算法 缓存
  * 
  * @author <a href="http://www.xunhou.me" target="_blank">Kelvin</a>
  *
  */
 public class BitmapFIFOCache {
-
 	private Queue<String> mCacheQueue;
 	private HashMap<String, Ref> mCache;
 
@@ -23,13 +22,11 @@ public class BitmapFIFOCache {
 	/**现在缓存中占用的大小,单位kb**/
 	private int mCurrtSize = 0;
 	
-	
 	public BitmapFIFOCache(int cacheMaxSize) {
 		if (0 <= cacheMaxSize) {
 			throw new IllegalArgumentException(
 					"CacheMaxSize must be greater than 0");
 		}
-		
 		mCacheMaxSize = cacheMaxSize;
 	}
 
