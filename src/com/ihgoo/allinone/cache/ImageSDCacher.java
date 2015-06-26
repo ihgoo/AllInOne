@@ -15,7 +15,7 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.HandlerThread;
 
-import com.ihgoo.allinone.util.BitmapTool;
+import com.ihgoo.allinone.image.BitmapTool;
 import com.ihgoo.allinone.util.LogUtils;
 import com.ihgoo.allinone.util.OtherUtils;
 

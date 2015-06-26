@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
-import com.ihgoo.allinone.BitmapUtils;
 import com.ihgoo.allinone.util.SharePreferenceUtil;
 
 /**
