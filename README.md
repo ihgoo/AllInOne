@@ -1,6 +1,6 @@
 ##All In One 
 --------------
-AIO(all in one简称) 包含 ioc 框架 、以及一些常用的工具类 
+AIO(all in one简称) 
 ---------------
 
 
@@ -37,14 +37,14 @@ AIO(all in one简称) 包含 ioc 框架 、以及一些常用的工具类
 	- getBitmapByViewSize 根据View大小获取自适应的bitmap对象
 	
 - Bitmap缓存
-	- FifoCache
-	- LruCache
+	- FIFOCache 置换算法
+	- LRUCache SDK自带推荐使用
 
 
 网络请求
 -------
 
-- 推荐使用['VolleyPlus'](https://github.com/DWorkS/VolleyPlus)，如接口是REST接口推荐使用['retrofit'](https://github.com/square/retrofit)这个框架。重点简单说下retrofit优点：
+- 推荐使用[`VolleyPlus`](https://github.com/DWorkS/VolleyPlus)，如接口是REST接口推荐使用[`retrofit`](https://github.com/square/retrofit)这个框架。重点简单说下retrofit优点：
 	- 采用动态代理机制和反射，使代码写起来特别简单，看起来也很清晰。
 	- 可以配合OkHttp拦截器，很方便的在header加token或者处理cookie等等。
 	- 可配合RxJava，可以让多个接口调用组合变的更简单。
