@@ -217,14 +217,14 @@ public class OtherUtils {
 
 		// Logger.d(TAG, "checkFsWritable directoryName ==   "
 		// + PathCommonDefines.APP_FOLDER_ON_SD);
-		File directory = new File(PathCommonDefines.APP_FOLDER_ON_SD);
+		File directory = new File(Persistence.APP_FOLDER_ON_SD);
 		if (!directory.isDirectory()) {
 			if (!directory.mkdirs()) {
 				LogUtils.e("checkFsWritable directoryName 000  ");
 				return false;
 			}
 		}
-		File f = new File(PathCommonDefines.APP_FOLDER_ON_SD, ".probe");
+		File f = new File(Persistence.APP_FOLDER_ON_SD, ".probe");
 		try {
 			// Remove stale file if any
 			if (f.exists()) {
@@ -280,7 +280,7 @@ public class OtherUtils {
 		int freeSize = 0;
 
 		if (hasStorage()) {
-			StatFs statFs = new StatFs(PathCommonDefines.APP_FOLDER_ON_SD);
+			StatFs statFs = new StatFs(Persistence.APP_FOLDER_ON_SD);
 
 			try {
 				long nBlocSize = statFs.getBlockSize();

@@ -1,4 +1,4 @@
-package com.ihgoo.allinone.util;
+package com.ihgoo.allinone.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
