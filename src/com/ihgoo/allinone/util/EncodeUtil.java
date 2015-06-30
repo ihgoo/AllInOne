@@ -45,8 +45,8 @@ public class EncodeUtil {
         return hexString.toString();
     }
 
-    public static String encrypt(String input) throws Exception {
-        return base64Encode(desEncrypt(input.getBytes()));
+    public static String encrypt(String private_key,String input) throws Exception {
+        return base64Encode(desEncrypt(private_key,input.getBytes()));
     }
 
     private static String base64Encode(byte[] s) {
@@ -56,12 +56,8 @@ public class EncodeUtil {
         return Base64.encodeBytes(s);
     }
 
-    /**
-     * DES密钥
-     */
-    private static final String private_key = "i*_uka*ld(_l);jsl;#k*&a";
 
-    private static byte[] desEncrypt(byte[] plainText) throws Exception {
+    private static byte[] desEncrypt(String private_key,byte[] plainText) throws Exception {
         SecureRandom sr = new SecureRandom();
         byte rawKeyData[] = private_key.getBytes();
         DESKeySpec dks = new DESKeySpec(rawKeyData);

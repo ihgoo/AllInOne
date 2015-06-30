@@ -1,6 +1,7 @@
 package com.ihgoo.allinone.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Locale;
 
@@ -335,5 +336,64 @@ public class PhoneUtils {
 		String retString = heightPixels + "*" + widthPixels;
 		return retString;
 	}
+	
+	public static boolean checkFsWritable() {
+		// Create a temporary file to see whether a volume is really writeable.
+		// It's important not to put it in the root directory which may have a
+		// limit on the number of files.
 
+		// Logger.d(TAG, "checkFsWritable directoryName ==   "
+		// + PathCommonDefines.APP_FOLDER_ON_SD);
+		File directory = new File(Persistence.APP_FOLDER_ON_SD);
+		if (!directory.isDirectory()) {
+			if (!directory.mkdirs()) {
+				LogUtils.e("checkFsWritable directoryName 000  ");
+				return false;
+			}
+		}
+		File f = new File(Persistence.APP_FOLDER_ON_SD, ".probe");
+		try {
+			// Remove stale file if any
+			if (f.exists()) {
+				f.delete();
+			}
+			if (!f.createNewFile()) {
+				return false;
+			}
+			f.delete();
+			return true;
+		} catch (IOException ex) {
+			return false;
+		}
+	}
+	
+	public static boolean hasStorage() {
+		boolean hasStorage = false;
+		String str = Environment.getExternalStorageState();
+
+		if (str.equalsIgnoreCase(Environment.MEDIA_MOUNTED)) {
+			hasStorage = checkFsWritable();
+		}
+
+		return hasStorage;
+	}
+
+
+	public static int freeSpaceOnSd() {
+		int freeSize = 0;
+
+		if (hasStorage()) {
+			StatFs statFs = new StatFs(Persistence.APP_FOLDER_ON_SD);
+
+			try {
+				long nBlocSize = statFs.getBlockSize();
+				long nAvailaBlock = statFs.getAvailableBlocks();
+				freeSize = (int) (nBlocSize * nAvailaBlock / 1024 / 1024);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return freeSize;
+	}
 }

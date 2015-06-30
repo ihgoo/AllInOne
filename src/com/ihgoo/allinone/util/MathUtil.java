@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import org.json.JSONObject;
 
+import com.ihgoo.allinone.exception.MathException;
+
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -23,20 +25,35 @@ public class MathUtil {
      * @param number 数据
      */
     public static String dotSubTwo(double number) {
-        DecimalFormat df = new DecimalFormat("0.00");
-        String str = number + "";
-        if(str.contains(".")) {
-            if(str.substring(str.indexOf(".")).length() == 1) {
-                str = str + "00";
-            }else if(str.substring(str.indexOf(".")).length() == 2) {
-                str = str + "0";
-            }else if(str.substring(str.indexOf(".")).length() > 3) {
-                str = str.substring(0,str.indexOf(".") + 3);
-            }
-        }else {
-            str = df.format(number);
+        DecimalFormat df = new DecimalFormat("0.000");
+        if (Double.isNaN(number)) {
+			throw new MathException("The parameter is not a number,plese check it.");
+		}
+        String str = df.format(number);
+        if (str.contains(".")) {
+        	return str.substring(0, str.length()-1);
+		}
+        return null;
+    }
+    
+
+    /**
+     * 提供精确的小数位四舍五入处理。
+     *
+     * @param v
+     *            需要四舍五入的数字
+     * @param scale
+     *            小数点后保留几位
+     * @return 四舍五入后的结果
+     */
+    public static double round(double v, int scale) {
+        if (scale < 0) {
+            throw new IllegalArgumentException(
+                    "The scale must be a positive integer or zero");
         }
-        return str;
+        BigDecimal b = new BigDecimal(Double.toString(v));
+        BigDecimal one = new BigDecimal("1");
+        return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
     /**
@@ -361,22 +378,4 @@ public class MathUtil {
         return result;
     }
 
-    /**
-     * 提供精确的小数位四舍五入处理。
-     *
-     * @param v
-     *            需要四舍五入的数字
-     * @param scale
-     *            小数点后保留几位
-     * @return 四舍五入后的结果
-     */
-    public static double round(double v, int scale) {
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
-        }
-        BigDecimal b = new BigDecimal(Double.toString(v));
-        BigDecimal one = new BigDecimal("1");
-        return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
-    }
 }
