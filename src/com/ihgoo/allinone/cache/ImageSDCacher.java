@@ -16,9 +16,9 @@ import android.os.Handler;
 import android.os.HandlerThread;
 
 import com.ihgoo.allinone.image.BitmapTool;
-import com.ihgoo.allinone.util.LogUtils;
-import com.ihgoo.allinone.util.OtherUtils;
-import com.ihgoo.allinone.util.PhoneUtils;
+import com.ihgoo.allinone.support.LogUtils;
+import com.ihgoo.allinone.support.OtherUtils;
+import com.ihgoo.allinone.support.PhoneUtils;
 
 
 public class ImageSDCacher {

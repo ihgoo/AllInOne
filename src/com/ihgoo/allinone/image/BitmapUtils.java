@@ -7,9 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import com.ihgoo.allinone.cache.ImageSDCacher;
-import com.ihgoo.allinone.util.LogUtils;
-import com.ihgoo.allinone.util.ScreenUtil;
-import com.ihgoo.allinone.util.ScreenUtil.Screen;
+import com.ihgoo.allinone.support.LogUtils;
+import com.ihgoo.allinone.support.ScreenUtil;
+import com.ihgoo.allinone.support.ScreenUtil.Screen;
 
 import android.R.integer;
 import android.content.res.Resources;

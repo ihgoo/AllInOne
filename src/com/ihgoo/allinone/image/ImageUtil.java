@@ -6,10 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import com.ihgoo.allinone.util.Check;
-import com.ihgoo.allinone.util.Persistence;
-import com.ihgoo.allinone.util.ResourceUtil;
-import com.ihgoo.allinone.util.ScreenUtil;
+import com.ihgoo.allinone.support.Check;
+import com.ihgoo.allinone.support.Persistence;
+import com.ihgoo.allinone.support.ResourceUtil;
+import com.ihgoo.allinone.support.ScreenUtil;
 
 import android.content.Context;
 import android.graphics.Bitmap;

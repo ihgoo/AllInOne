@@ -68,7 +68,11 @@ DB
 -------
 - AppUtil 获取关于app的一些参数，如 版本号版本名称
 
-- Check 检查类，检查网络状态、检查sd卡是否存在等。
+- Check 检查类，检查sd卡是否存在等。
+
+- EncodeUtil(EncryptUtil) 加密解密
+
+- NetUtil 网络判断，检查使用何种方式联网，以及网络是否可用(连接)
 
 - LogUtils 自定义log日志，省略参数key，可定位到哪个类第几行
 
@@ -82,11 +86,17 @@ DB
 
 - LogUtils 省略了传入tag的log(建议使用Log4j)
 
-- StringUtils 对字符串处理的工具类
-
 - SharePreferenceUtil 对SharePreference封装简单get&put方法
 
 - PhoneUtils 获取手机信息的工具类，诸如获取手机型号获取手机sd卡大小等
+
+- StringUtils 对字符串处理的工具类
+
+- TimeUtil 时间格式化/计算时间差值
+
+- TrafficUtil 流量统计
+
+- ViewUtil 处理View的一些方法
 
 
 License

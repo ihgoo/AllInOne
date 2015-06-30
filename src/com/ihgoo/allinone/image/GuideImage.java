@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
-import com.ihgoo.allinone.util.SharePreferenceUtil;
+import com.ihgoo.allinone.support.SharePreferenceUtil;
 
 /**
  * 引导图层
